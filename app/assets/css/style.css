@@ -1,0 +1,24 @@
+header{padding: 25px;}
+.panel{
+    border: 0px solid transparent;
+}
+.panel-info>.panel-heading {
+    color: black;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(169, 169, 169, 0.55);
+}
+b, strong {
+    font-weight: 400;
+}
+.product-name { line-height: 0px;
+}
+.crud-style {font-size: 10px;
+    margin-top: 28px;
+}
+.crud-padding{
+  padding-right: 10px;;      
+}
+.color1{background: #00FF6E;height: 30px;width: 30px;text-align: center;margin-left: 65px;}
+.color2{background: #EBEFEC;height: 30px;width: 30px;}
+.dropdown-paading{padding: 8px 4px 5px 44px;}
+.dropdown-style{padding: 5px;}

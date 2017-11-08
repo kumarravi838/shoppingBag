@@ -1,0 +1,199 @@
+<div class="continer-fluid">
+  <header class="">
+    <h3>YOUR SHOPPING BAG</h3>
+  </header>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">
+            <div class="row">
+              <div class="col-xs-2">
+                3 ITEMS
+              </div>
+              <div class="col-xs-4">
+
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                  SIZE
+                </div>
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 text-center">
+                  QTY
+                </div>
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 text-center">
+                  PRICE
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row" ng-repeat="item in shoppingData.productsInCart">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img class="img-responsive" src="http://placehold.it/100x70">
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              <h4 class="product-name"><b>{{item.p_variation +" "+ item.p_name | uppercase}}</b></h4>
+              <small>Style #:{{item.p_style | uppercase}}</small>
+              <div>
+                <small>Colour:{{item.p_selected_color.name | capitalize}}</small>
+              </div>
+              <div class="crud-style">
+                <span class="crud-padding" data-toggle="modal" data-target="#myModal">EDIT</span>| <span class="crud-padding"> x REMOVE</span>| <span class="crud-padding"> SAVE FOR LATER</span>
+              </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <b>{{item.p_selected_size.code | uppercase}}</b>
+              </div>
+              <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                <input type="text" class="form-control input-sm text-center" ng-model="item.p_quantity">
+              </div>
+              <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                <h6 class="text-center"><strong> <span class="text-muted"></span>{{item.p_price | currency}}</strong></h6>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <hr>
+            </div>
+          </div>
+
+          <!-- <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img class="img-responsive" src="http://placehold.it/100x70">
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              <h4 class="product-name"><b>SOLID GREEN COTTON TSHIRT</b></h4>
+              <small>Style #:MS13KT1906</small>
+              <div>
+                <small>Colour:Blue</small>
+              </div>
+              <div class="crud-style">
+                <span class="crud-padding">EDIT</span>| <span class="crud-padding"> x REMOVE</span>| <span class="crud-padding"> SAVE FOR LATER</span>
+              </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <b>S</b>
+              </div>
+              <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                <input type="text" class="form-control input-sm text-center" value="1">
+              </div>
+              <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                <h6 class="text-center"><strong> <span class="text-muted">$</span>25.00</strong></h6>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img class="img-responsive" src="http://placehold.it/100x70">
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              <h4 class="product-name"><b>SOLID GREEN COTTON TSHIRT</b></h4>
+              <small>Style #:MS13KT1906</small>
+              <div>
+                <small>Colour:Blue</small>
+              </div>
+              <div class="crud-style">
+                <span class="crud-padding">EDIT</span>| <span class="crud-padding"> x REMOVE</span>| <span class="crud-padding"> SAVE FOR LATER</span>
+              </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <b>S</b>
+              </div>
+              <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                <input type="text" class="form-control input-sm text-center" value="1">
+              </div>
+              <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                <h6 class="text-center"><strong> <span class="text-muted">$</span>25.00</strong></h6>
+              </div>
+            </div>
+          </div>
+          <hr> -->
+          <div class="row">
+            <div class="text-center">
+              <div class="col-xs-9">
+                <h6 class="text-right">Added items?</h6>
+              </div>
+              <div class="col-xs-3">
+                <button type="button" class="btn btn-default btn-sm btn-block">
+									Update cart
+								</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="row text-center">
+            <div class="col-xs-9">
+              <h4 class="text-right">Total <strong>$50.00</strong></h4>
+            </div>
+            <div class="col-xs-3">
+              <button type="button" class="btn btn-success btn-block">
+								Checkout
+							</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <hr>
+          <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-4 text-center">
+                <h4>PAISLEY JEAN</h4>
+                <h3>$21</h3>
+                <div class="">PAISLEY</div>
+                </div>
+                <div class="col-xs-8"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-2"><div class="color1 "></div></div>
+            <div class="col-xs-10"><div class="color2"></div></div>
+          </div>
+          <div class="row">
+              <div class="container dropdown-paading">
+                  <select class="dropdown-style">
+                      <option value="volvo">SIZE</option>
+                      <option value="saab">Saab</option>
+                      <option value="opel">Opel</option>
+                      <option value="audi">Audi</option>
+                    </select>
+                    <select class="dropdown-style">
+                      <option value="volvo">QTY</option>
+                      <option value="saab">Saab</option>
+                      <option value="opel">Opel</option>
+                      <option value="audi">Audi</option>
+                    </select>
+              </div>
+              <div class="col-xs-3">
+                  <button type="button" class="btn btn-primary">Primary</button>
+              </div>
+              <div class="col-xs-9">
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
