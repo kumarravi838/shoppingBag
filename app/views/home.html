@@ -32,7 +32,7 @@
         </div>
         <div class="panel-body">
           <div class="row" ng-repeat="item in shoppingData.productsInCart">
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img class="img-responsive" src="http://placehold.it/100x70">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img class="img-responsive" ng-src="{{'assets/img/'+item.p_image+'.jpg'}}">
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
               <h4 class="product-name"><b>{{item.p_variation +" "+ item.p_name | uppercase}}</b></h4>
@@ -41,7 +41,8 @@
                 <small>Colour:{{item.p_selected_color.name | capitalize}}</small>
               </div>
               <div class="crud-style">
-                <span class="crud-padding" data-toggle="modal" data-target="#myModal">EDIT</span>| <span class="crud-padding"> x REMOVE</span>| <span class="crud-padding"> SAVE FOR LATER</span>
+                <span class="crud-padding" data-toggle="modal" data-target="#myModal" ng-click="editDetailsModal(item.p_name)">EDIT</span>|
+                <span class="crud-padding"> x REMOVE</span>| <span class="crud-padding"> SAVE FOR LATER</span>
               </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
@@ -57,83 +58,88 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <hr>
+
             </div>
+
+          </div>
+          <div class="row">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <h4 class="sub">Need help <br>or have questions?</h4><br>
+              <h4>Call Customer Service at<br> 1-800-555-5555</h4>
+              <h4>
+                <u>Chat with one of <br>our stylists</u>
+              </h4>
+              <h4>
+                <u>See return <br> & exchange policy</u>
+              </h4>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 ">
+              <div class="row ">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <h5>ENTER PROMOTION CODE OR GIFT CARD</h5>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                  <input type="text" class="input-control">
+                  <button type="button" class="btn btn-default btn-apply">APPLY</button>
+                </div>
+              </div>
+              <hr class="h-line">
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="sub">SUBTOTAL</div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                  <div class="sub">{{pricingDetails.totalAmount | currency}}</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="sub">PROMOTION CODE APPLIED</div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                  <div class="sub">-{{pricingDetails.promotionalDiscountValue | currency}}</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="sub">ESTIMATED SHIPPING*</div>
+                  <p>You qualify for free shipping because your order is over $50*</p>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                  <div class="sub">Free</div>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <h4><b>ESTIMATED TOTAL</b></h4>
+                  <p>Tax will be applied during checkout</p>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                  <h3>{{pricingDetails.totalAmountAfterDiscount | currency}}</h3>
+                </div>
+              </div>
+              <hr class="h-line">
+            </div>
+
           </div>
 
-          <!-- <div class="row">
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img class="img-responsive" src="http://placehold.it/100x70">
-            </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-              <h4 class="product-name"><b>SOLID GREEN COTTON TSHIRT</b></h4>
-              <small>Style #:MS13KT1906</small>
-              <div>
-                <small>Colour:Blue</small>
-              </div>
-              <div class="crud-style">
-                <span class="crud-padding">EDIT</span>| <span class="crud-padding"> x REMOVE</span>| <span class="crud-padding"> SAVE FOR LATER</span>
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                <b>S</b>
-              </div>
-              <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                <input type="text" class="form-control input-sm text-center" value="1">
-              </div>
-              <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                <h6 class="text-center"><strong> <span class="text-muted">$</span>25.00</strong></h6>
-              </div>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><img class="img-responsive" src="http://placehold.it/100x70">
-            </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-              <h4 class="product-name"><b>SOLID GREEN COTTON TSHIRT</b></h4>
-              <small>Style #:MS13KT1906</small>
-              <div>
-                <small>Colour:Blue</small>
-              </div>
-              <div class="crud-style">
-                <span class="crud-padding">EDIT</span>| <span class="crud-padding"> x REMOVE</span>| <span class="crud-padding"> SAVE FOR LATER</span>
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                <b>S</b>
-              </div>
-              <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                <input type="text" class="form-control input-sm text-center" value="1">
-              </div>
-              <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                <h6 class="text-center"><strong> <span class="text-muted">$</span>25.00</strong></h6>
-              </div>
-            </div>
-          </div>
-          <hr> -->
-          <div class="row">
-            <div class="text-center">
-              <div class="col-xs-9">
-                <h6 class="text-right">Added items?</h6>
-              </div>
-              <div class="col-xs-3">
-                <button type="button" class="btn btn-default btn-sm btn-block">
-									Update cart
-								</button>
-              </div>
-            </div>
-          </div>
+
         </div>
-        <div class="panel-footer">
+        <div class="">
           <div class="row text-center">
-            <div class="col-xs-9">
-              <h4 class="text-right">Total <strong>$50.00</strong></h4>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <h5 class="text-right ">
+                <u class="shop-txt">CONTINUE SHOPPING</u>
+                <button type="button" class="btn btn-primary btn-apply btn-fix pull-right">CHECKOUT</button>
+              </h5>
+
             </div>
-            <div class="col-xs-3">
-              <button type="button" class="btn btn-success btn-block">
-								Checkout
-							</button>
+            <!-- <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                
+            </div> -->
+            <div class="col-xs-12">
+              <p class="text-right terms"> <span class="glyphicon glyphicon-lock"></span> Secure checkout.Shopping is always safe & secure</p>
             </div>
           </div>
         </div>
@@ -144,56 +150,54 @@
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <hr>
-          <div class="row">
-            <div class="col-xs-12">
-                <div class="col-xs-4 text-center">
-                <h4>PAISLEY JEAN</h4>
-                <h3>$21</h3>
-                <div class="">PAISLEY</div>
-                </div>
-                <div class="col-xs-8"></div>
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <hr>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="col-xs-4 text-center">
+              <h4>{{currentSelected[0].p_name | uppercase}}</h4>
+              <h3>{{currentSelected[0].p_price | currency}}</h3>
+              <div>{{currentSelected[0].p_selected_color.name | capitalize}}</div>
+            </div>
+            <div class="col-xs-8">
+              <img ng-src="{{'assets/img/'+ currentSelected[0].p_image +'.jpg'}}" class="img-modal">
             </div>
           </div>
-          <div class="row">
-            <div class="col-xs-2"><div class="color1 "></div></div>
-            <div class="col-xs-10"><div class="color2"></div></div>
-          </div>
-          <div class="row">
-              <div class="container dropdown-paading">
-                  <select class="dropdown-style">
-                      <option value="volvo">SIZE</option>
-                      <option value="saab">Saab</option>
-                      <option value="opel">Opel</option>
-                      <option value="audi">Audi</option>
-                    </select>
-                    <select class="dropdown-style">
-                      <option value="volvo">QTY</option>
-                      <option value="saab">Saab</option>
-                      <option value="opel">Opel</option>
-                      <option value="audi">Audi</option>
-                    </select>
-              </div>
-              <div class="col-xs-3">
-                  <button type="button" class="btn btn-primary">Primary</button>
-              </div>
-              <div class="col-xs-9">
-              </div>
+        </div>
+        <div class="row">
+          <div class="container color-box">
+            <div class="color1" ng-repeat="availColors in currentSelected[0].p_available_options.colors" ng-style="{background: availColors.hexcode}"></div>
+            <!-- <div class="color1"></div>
+              <div class="color2"></div> -->
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <div class="row">
+          <div class="container dropdown-paading">
+            <select class="dropdown-style">
+                      <option value="">SIZE</option>
+                      <option value="saab" ng-repeat="size in currentSelected[0].p_available_options.sizes">{{size.name | uppercase}}</option>
+                    </select>
+            <select class="dropdown-style">
+                      <option value="volvo">QTY</option>
+                      <option value="saab">1</option>
+                      <option value="opel">2</option>
+                      <option value="audi">3</option>
+                    </select>
+          </div>
+          <div class="col-xs-4">
+            <button type="button" class="btn btn-primary btn-edit">EDIT</button>
+          </div>
+          <div class="col-xs-8">
+          </div>
         </div>
       </div>
-      
+
     </div>
+
   </div>
+</div>

@@ -1,3 +1,4 @@
+html,body{font-family: 'Roboto Condensed', sans-serif !important;}
 header{padding: 25px;}
 .panel{
     border: 0px solid transparent;
@@ -16,9 +17,31 @@ b, strong {
     margin-top: 28px;
 }
 .crud-padding{
-  padding-right: 10px;;      
+  padding-right: 10px;
+  cursor: pointer;      
 }
-.color1{background: #00FF6E;height: 30px;width: 30px;text-align: center;margin-left: 65px;}
-.color2{background: #EBEFEC;height: 30px;width: 30px;}
+.color1{height: 30px;width: 30px;float: left;padding: 10px !important;margin: 2px;}
+/* .color2{background: #EBEFEC;height: 30px;width: 30px;float: left;margin: 2px 2px 0px 3px;} */
 .dropdown-paading{padding: 8px 4px 5px 44px;}
-.dropdown-style{padding: 5px;}
+.dropdown-style{padding: 3px;}
+.btn-edit{border-radius: 0px;margin-left: 28px;width: 100%;margin-bottom: 35px;}
+.btn-apply{border-radius: 0px;width: 138px;}
+.input-control{height: 34px;padding: 10px;}
+.h-line{border: 2px solid rgba(88, 87, 87, 0.25);}
+.sub{font-weight: bolder !important; padding-top: 20px;}
+.terms{padding: 20px; word-spacing: 4px;}
+.padzero{padding: 0px;}
+.color-box{padding: 11px 0px 0px 60px;}
+.btn-fix{width:100px;margin-top: -9px;}
+.shop-txt{padding-right: 25px;}
+.img-modal{position: absolute;top: 1%;height: 230px;left: 17%;}
+@media only screen and (max-width: 414px) {
+    .input-control {
+       width: 136px;
+       margin-top: 10px;
+    }
+    .product-name {
+        line-height: 12px;
+        font-size: 10px;
+    }
+}
